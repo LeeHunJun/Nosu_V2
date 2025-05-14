@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://lx3s0hbli3yt"]
+
+[ext_resource type="Texture2D" uid="uid://dof5w16bdfngc" path="res://art/goodot.png" id="1_komg3"]
+[ext_resource type="PackedScene" uid="uid://be7m67p1jl1dq" path="res://object/key_listener.tscn" id="1_xe2we"]
+[ext_resource type="PackedScene" uid="uid://ckv6yj36kjh1j" path="res://level/game_ui.tscn" id="2_komg3"]
+[ext_resource type="PackedScene" uid="uid://j5aibiemdwth" path="res://object/level_editor.tscn" id="4_ymwx8"]
+
+[sub_resource type="Environment" id="Environment_ymwx8"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 1
+
+[node name="GameLevel" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(34, 100)
+texture = ExtResource("1_komg3")
+
+[node name="KeyListener" parent="." instance=ExtResource("1_xe2we")]
+position = Vector2(-120, 280)
+key_name = "button_Z"
+
+[node name="KeyListener2" parent="." instance=ExtResource("1_xe2we")]
+position = Vector2(-43, 280)
+key_name = "button_X"
+
+[node name="KeyListener3" parent="." instance=ExtResource("1_xe2we")]
+position = Vector2(40, 280)
+key_name = "button_N"
+
+[node name="KeyListener4" parent="." instance=ExtResource("1_xe2we")]
+position = Vector2(120, 280)
+key_name = "button_M"
+
+[node name="GameUI" parent="." instance=ExtResource("2_komg3")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ymwx8")
+
+[node name="LevelEditor" parent="." instance=ExtResource("4_ymwx8")]
